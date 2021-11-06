@@ -1,3 +1,3 @@
-module test
+module url
 
 go 1.16
