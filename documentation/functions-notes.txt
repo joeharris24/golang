@@ -1,0 +1,36 @@
+functions
+
+func doubleNum(num int) int {
+	return num * 2
+}
+
+
+func multiplier(x, y int32) int32 {
+	return x * y
+}
+
+
+multiple return values are possible, comma separated
+func GPA(grade float32, final float32) (string, float32) {
+	...
+}
+
+
+There's potential for many returns across a function
+If we want something to occur just before a return, use defer
+
+func calculateTaxes(rev, ded, cred float64) float64 {
+	defer fmt.Println("Taxes calculated, about to return value")
+}
+
+Can use this for functions also, so before a return value we can always do something
+defer disconnectDatabase()
+
+
+
+Pointers and Addresses
+Go is a pass-by-value language, so we pass functions the value of the argument
+We can change values from different scopes using addresses, pointers, and dereferencing
+
+treasure := "hello"
+treasureAddress := &treasure
