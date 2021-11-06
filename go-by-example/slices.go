@@ -44,6 +44,14 @@ func main() {
 	}
 	fmt.Println(twoD)
 
+	testArray := [3]int{}
+	fmt.Println(testArray)
+	testSlice := testArray[:]
+	fmt.Println(testSlice)
+	testSlice[0] = 1
+	fmt.Println(testArray)
+	fmt.Println(testSlice)
+
 }
 
 /*
