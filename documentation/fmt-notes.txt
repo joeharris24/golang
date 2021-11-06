@@ -1,0 +1,63 @@
+---- fmt ----
+fmt is the 'format' package
+
+fmt.Println("Hello", "you.") # Hello you
+fmt.Print("Oh", "hello.") # Ohhello
+fmt.Print("Oh", "no") # Ohhelloohno
+
+Println prints arguments with spaces between, and adds line break at end
+
+
+Print does neither of these things
+
+
+Printf allows us to interpolate strings, using placeholders
+
+%v is placeholder known as a 'verb'
+fmt.Printf("Is %v your final answer", guess) # Is this your final answer
+
+%T prints out the type of the argument
+fmt.Printf("This value's type is %T", specialNum) # This value's type is int
+
+%d interpolates a number into a string
+fmt.Printf("The value selected is %d", specialNum) # The value selected is 18
+
+%f interpolates a float into a string
+fmt.Printf("The float value is %f", specialFloat) # The float value is 3.8000
+
+We can limit float precision using %.2f e.g.
+fmt.Printf("To two decimal places %.2f", specialFloat) # To two decimal places 3.80
+
+
+Sprint doesn't print, it returns a value to be stored in a variable
+
+meditation := fmt.Sprint(step1, step2) 
+fmt.Println(meditation) # Breathe inbreathe out
+
+meditation := fmt.Sprintln(step1, step2)
+fmt.Println(meditation) # Breathe in breathe out
+
+
+Sprintf allows interpolation of string without printing
+correctAns := "A"
+answer := fmt.Sprintf("Correct answer is: %v", correctAns) # Correct answer is A
+
+template := "I wish I had a %v."
+pet := "puppy"
+wish := fmt.Sprintf(template, pet)
+fmt.Println(wish) # I wish I had a puppy.
+
+
+
+Scan allows us to get user input
+
+var response string
+fmt.Scan(&response)
+fmt.Printf("You're %v.", response) # You're good / You're not (missing bad)
+
+Space separated strings will only return the number of values specified
+var response1 string
+var response2 string
+fmt.Scan(&response1)
+fmt.Scan(&respones2)
+fmt.Printf("You're &v &v", response1, response2) # You're not bad
