@@ -1,0 +1,74 @@
+conditionals
+
+heistReady := true
+if heistReady {
+	fmt.Print("Let's go.")	# Let's go.
+} else {
+	fmt.Print("Not ready.")
+}
+
+
+lockCombo := 123
+robAttempt := 111
+if lockCombo == robAttempt {
+	fmt.Println("We're in.")
+}
+
+
+&& = and
+|| = or
+! = not
+
+if rightTime || rightPlace {
+	fmt.Println("Let's do this.")
+}
+
+bored := true
+fmt.Println(!bored) # false
+
+
+if position == 1 {
+	fmt.Println("First.")
+} else if position == 2 {
+	fmt.Println("Second.")
+} else {
+	fmt.Println("You ain't winning.")
+}
+
+
+clothingChoice := "sweater"
+switch clothingChoice {
+	case "shirt":
+		fmt.Println("We have shirts in M and L")
+	case "polos": 
+		fmt.Println("We have XS and S")
+	case "sweater": 
+		fmt.Println("We have this in all sizes")
+	default:
+		fmt.Println("Sorry, we don't have that.")
+}
+
+
+x := 8
+y := 9
+if product := x * y; product > 60 {
+	fmt.Println(product, "is greater than 60")
+}
+
+switch season := "summer"; season {
+	case "summer":
+		fmt.Println("Enjoy the sun.")
+}
+
+These variables are scoped to the statement blocks. 
+External reference isn't supported.
+
+
+For randomisation we import "math/rnd"
+fmt.Println(rand.Intn(100)) # Random number between 0 and 100
+This will provide the same number each time it's run
+This is due to how Go seeds a number as a starting point for generating random numbers
+Default seed value = 1
+
+rand.Seed(time.Now().UnixNano())
+amountLeft := rand.Intn(10000) # This is a random number based on time of execution
