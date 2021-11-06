@@ -1,4 +1,4 @@
-package main
+package url
 
 import (
 	"fmt"
@@ -25,7 +25,7 @@ func getTld(urlSlice []string) string {
 
 func getSubdomains(urlSlice []string) []string {
 	urlSliceEntries := len(urlSlice)
-	subdomainSlice := urlSlice[1 : urlSliceEntries-1]
+	subdomainSlice := urlSlice[1 : urlSliceEntries-2]
 	return subdomainSlice
 }
 
@@ -35,6 +35,12 @@ func getHostname(urlSlice []string) string {
 	return hostname
 }
 
+func getPrimaryDomain(urlSlice []string) string {
+	urlSliceEntries := len(urlSlice)
+	primaryDomain := urlSlice[urlSliceEntries-2]
+	return primaryDomain
+}
+
 func main() {
 	receivedUrl := getUrl()
 	fmt.Println("URL to explode:", receivedUrl)
@@ -42,10 +48,12 @@ func main() {
 
 	tld := getTld(urlSlice)
 	hostname := getHostname(urlSlice)
+	subdomains := getSubdomains(urlSlice)
+	primaryDomain := getPrimaryDomain(urlSlice)
 
 	fmt.Println("Top level domain:", tld)
 	fmt.Println("Hostname:", hostname)
+	fmt.Println("Subdomains", subdomains)
+	fmt.Println("Primary domain", primaryDomain)
 
-	fmt.Println(getSubdomains(urlSlice))
-	fmt.Println(getHostname(urlSlice))
 }
