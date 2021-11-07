@@ -1,0 +1,54 @@
+https://jordanorelli.com/post/32665860244/how-to-use-interfaces-in-go
+
+Interface is two things:
+- Set of methods
+- Type
+
+SET OF METHODS 
+--------------
+
+Animal type will be an interface, and we define an animal as being anything that can speak
+Core concept of Go's system: instead of designing abstractions based on the kind of data our types can hold, 
+we design abstractions in terms of what actions our types can execute
+
+Start by defining Animal interface
+
+type Animal interface {
+    Speak() string
+}
+
+So we've defined an ANimal as being any type that has a method named Speak
+Speak method takes no arguments, and returns a string 
+Any type that defines this method is said to 'satisfy' the Animal interface 
+
+Example types that satisfy this interface
+
+type Dog struct {
+}
+
+func (d Dog) Speak() string {
+    return "Woof!"
+}
+
+type Cat struct{
+}
+
+func (c Cat) Speak() string {
+    return "Meow!
+}
+
+Now we have two types of animals. In main() function we can create slice of Animals and put one of each type into that slice,
+and see what the animal satisfy
+
+func main() {
+    animals := []Animals{Dog{}, Cat{}}
+    for _, animal := range animals {
+        fmt.Println(animal.Speak())
+    }
+}
+
+INTERFACE TYPE 
+--------------
+
+interface{} type is the interface that has no methods 
+If you write a function that takes an interface{} value as a parameter, you can supply that function with any value
