@@ -52,6 +52,9 @@ func main() {
 	go letters()
 
 	for range c {
+		select {
+			case c <
+		}
 		fmt.Println(c)
 	}
 

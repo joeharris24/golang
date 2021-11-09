@@ -13,8 +13,14 @@ func zeroptr(ptr *int) {
 func main() {
 	i := 1
 	fmt.Println(i)
+	// > 1
+
 	zeroval(i)
 	fmt.Println(i)
+	// > 1
+
 	zeroptr(&i)
 	fmt.Println(i)
+	// > 0
+
 }
